@@ -115,7 +115,7 @@ def index():
         # 計算相似度分數
         score = 100-compute_similarity_score(mfccs_A_normalized, mfccs_B_normalized)
         return render_template('index.html', score=score)
-    return render_template('index.html')
+    return render_template('index.html',score=0)
 
 if __name__ == '__main__':
     app.debug = True
