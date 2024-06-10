@@ -118,35 +118,35 @@ def index():
     return render_template('index.html',score=0)
 
 if __name__ == '__main__':
-    app.debug = True
-    app.run()
+    # app.debug = True
+    # app.run()
 
-    # audio_file_path_A = os.path.join('C:\\Users\\USER\\Desktop\\flask-templete\\templates\\A.wav')
-    # audio_A, sr_A = load_audio(audio_file_path_A)
-    # audio_file_path_B = os.path.join('C:\\Users\\USER\\Desktop\\flask-templete\\templates\\user_input.wav')
-    # record_audio_to_file(audio_file_path_B, duration=4, channels=1, rate=44100, frames_per_buffer=1024)
-    # audio_B, sr_B = load_audio(audio_file_path_B)
-    # # 去除靜音部分
-    # audio_A1 = remove_silence(audio_A)
-    # audio_B1 = remove_silence(audio_B)
-    # # 預處理雜音
-    # audio_preA2 = preprocess_audio(audio_A1)
-    # audio_preB2 = preprocess_audio(audio_B1)
-    # # 提取 MFCC 特徵
-    # mfccs_A = extract_mfcc(audio_A, sr_A)
-    # mfccs_B = extract_mfcc(audio_B, sr_A)
-    # # 使兩個音檔的 MFCC 特徵具有相同的維度
-    # min_length = min(mfccs_A.shape[1], mfccs_B.shape[1])
-    # mfccs_A = mfccs_A[:, :min_length]
-    # mfccs_B = mfccs_B[:, :min_length]
-    # # 正規化 MFCC 特徵
-    # mfccs_A_normalized = normalize_mfcc(mfccs_A)
-    # mfccs_B_normalized = normalize_mfcc(mfccs_B)
-    # plt.figure()
-    # librosa.display.waveshow(mfccs_A_normalized, sr=sr_A)
-    # plt.title('waveform')
-    # plt.show()
-    # plt.figure()
-    # librosa.display.waveshow(mfccs_B_normalized, sr=sr_B)
-    # plt.title('waveform')
-    # plt.show()
+    audio_file_path_A = os.path.join('C:\\Users\\USER\\Desktop\\flask-templete\\static\\audio\\A.wav')
+    audio_A, sr_A = load_audio(audio_file_path_A)
+    audio_file_path_B = os.path.join('C:\\Users\\USER\\Desktop\\flask-templete\\static\\audio\\user_input.wav')
+    record_audio_to_file(audio_file_path_B, duration=4, channels=1, rate=44100, frames_per_buffer=1024)
+    audio_B, sr_B = load_audio(audio_file_path_B)
+    # 去除靜音部分
+    audio_A1 = remove_silence(audio_A)
+    audio_B1 = remove_silence(audio_B)
+    # 預處理雜音
+    audio_preA2 = preprocess_audio(audio_A1)
+    audio_preB2 = preprocess_audio(audio_B1)
+    # 提取 MFCC 特徵
+    mfccs_A = extract_mfcc(audio_A, sr_A)
+    mfccs_B = extract_mfcc(audio_B, sr_A)
+    # 使兩個音檔的 MFCC 特徵具有相同的維度
+    min_length = min(mfccs_A.shape[1], mfccs_B.shape[1])
+    mfccs_A = mfccs_A[:, :min_length]
+    mfccs_B = mfccs_B[:, :min_length]
+    # 正規化 MFCC 特徵
+    mfccs_A_normalized = normalize_mfcc(mfccs_A)
+    mfccs_B_normalized = normalize_mfcc(mfccs_B)
+    plt.figure()
+    librosa.display.waveshow(mfccs_A_normalized, sr=sr_A)
+    plt.title('waveform')
+    plt.show()
+    plt.figure()
+    librosa.display.waveshow(mfccs_B_normalized, sr=sr_B)
+    plt.title('waveform')
+    plt.show()
