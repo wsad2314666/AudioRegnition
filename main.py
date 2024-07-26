@@ -344,7 +344,7 @@ def scoring_function(params, distAVG, distPIT, distMFCC):
     return total_score
 @app.route('/')
 def index():
-    return render_template('Spanish.html')
+    return render_template('index.html')
 
 @app.route('/speech_file', methods=['POST'])
 def receive_speech_file():
